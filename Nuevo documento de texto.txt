@@ -1,0 +1,36 @@
+buttons: [{
+                        extend: 'excel',
+                        text: '<button class="btn btn-success">Exportar a Excel</button>',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 6, 7,
+                                8
+                            ] // Excluye las columnas de Editar y Eliminar
+                        }
+                    },
+                    {
+                        extend: 'pdf',
+                        text: '<button class="btn btn-danger">Exportar a PDF</button>',
+                        // orientation: 'landscape',
+                        // pageSize: 'A4',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 6,
+                                7
+                            ] // Excluye las columnas de Editar y Eliminar
+                        }
+                    }
+                ]
+
+
+<div class="col-16">
+                                            {!! Form::model($tabla->id, ['route' => ['contacto.actualizar', $tabla->id], 'method' => 'put']) !!}
+                                            @foreach ($roles as $role)
+                                            <div>
+                                                <label for="">
+                                                    {!! Form::checkbox('roles[]', $role->id,null, ['class'=>'mr-1']) !!}
+                                                {{$role->name}}
+                                                </label>
+                                            </div>
+                                                
+                                          @endforeach
+                                            {!! Form::close() !!}
+                                        </div>
